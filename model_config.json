@@ -1,0 +1,56 @@
+{
+  "is_train": false,
+  "data":
+    {
+      "use_small_data": false,
+      "small":
+            {
+              "data_dir": "./data/",
+              "train_csv": "train_ratings_small.csv",
+              "val_csv": "val_ratings_small.csv",
+              "test_csv": "test_ratings_small.csv"
+            },
+
+      "large":
+            {
+              "data_dir": "./data/",
+              "train_csv": "train_ratings_large.csv",
+              "val_csv": "val_ratings_large.csv",
+              "test_csv": "test_ratings_large.csv"
+            }
+      },
+
+  "model":
+      {
+        "savepath": "hdfs:/user/str8775/trained_als_model_small",
+
+        "als":
+            {
+              "userCol": "userId",
+              "itemCol": "movieId",
+              "ratingCol": "rating",
+              "maxIter": 10,
+              "rank": 400,
+              "regParam": 0.01,
+              "coldStartStrategy": "drop"
+            },
+
+      "baseline":
+              {
+                "model_type": "damped",
+                "beta_item": 197,
+                "count_threshold": 5
+              }
+      },
+  "eval":
+        {
+          "model_loadpath": "../post_htune/trained_als_model_large_1652837781",
+          "als":
+                {
+                  "metricName": "rmse",
+                  "labelCol": "rating",
+                  "predictionCol": "prediction"
+                },
+          "topk_preds": 100
+        }
+}

@@ -1,0 +1,39 @@
+{
+    "data":
+      {
+        "use_small_data": true,
+        "data_split": "val",
+        "small":
+              {
+                "data_dir": "../final-data/data/",
+                "train_csv": "train_ratings_small.csv",
+                "val_csv": "val_ratings_small.csv",
+                "test_csv": "test_ratings_small.csv"
+              },
+
+        "large":
+              {
+                "data_dir": "../final-data/data/",
+                "train_csv": "train_ratings_large.csv",
+                "val_csv": "val_ratings_large.csv",
+                "test_csv": "test_ratings_large.csv"
+              }
+        },
+
+    "model":
+        {
+          "als_model_loadpath": "/Users/sukritrao/Documents/NYU/Coursework/Spring 2022/Big Data-DS-GA 1004/final-project/trained_als_model_large_1651253917"
+        },
+    "index_query_params":
+          {
+            "topk_preds": 100,
+            "num_threads": 8,
+            "batch_input": true,
+            "space": "cosinesimil",
+            "space_params":
+                {
+                    "M": 20,
+                    "ef": 200
+                }
+          }
+  }

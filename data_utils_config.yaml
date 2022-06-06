@@ -1,0 +1,51 @@
+use_small_data: false
+debug: true
+train_split: 0.7 # of the total input data
+val_split: 0.5 # of the remaining data after train split
+
+small:
+  input:
+    data_dir: ../ml-latest-small/
+
+    ratings_csv: ratings.csv
+    movies_csv: movies.csv
+    tags_csv: tags.csv
+    links_csv: links.csv
+
+  output:
+    data_dir: ../data/
+
+    train:
+      ratings_csv: train_ratings_small.csv
+      consolidated_csv: train_consolidated_small.csv
+
+    val:
+      ratings_csv: val_ratings_small.csv
+      consolidated_csv: val_consolidated_small.csv
+
+    test:
+      ratings_csv: test_ratings_small.csv
+      consolidated_csv: test_consolidated_small.csv
+
+large:
+  input:
+    data_dir: ../ml-latest/
+    ratings_csv: ratings.csv
+    movies_csv: movies.csv
+    tags_csv: tags.csv
+    links_csv: links.csv
+
+  output:
+    data_dir: ../data/
+
+    train:
+      ratings_csv: train_ratings_large.csv
+      consolidated_csv: train_consolidated_large.csv
+
+    val:
+      ratings_csv: val_ratings_large.csv
+      consolidated_csv: val_consolidated_large.csv
+
+    test:
+      ratings_csv: test_ratings_large.csv
+      consolidated_csv: test_consolidated_large.csv
